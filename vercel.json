@@ -4,10 +4,17 @@
         "src":"./server.js",
         "use":"@vercel/node"
     }],
-    "routes":[{
-        "src":"/(.*)",
-        "dest":"/"
-    }]
+   "routes": [
+        {
+          "src": "/(.*)",
+          "dest": "/",
+          "methods":["GET","POST","PUT","PATCH","DELETE"],
+          "headers": {
+            "Access-Control-Allow-Origin": "*"
+          }
+        
+        }
+    ]
 }
 
 
