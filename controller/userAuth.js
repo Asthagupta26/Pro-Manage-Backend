@@ -102,6 +102,8 @@ const updateUserName = async (req, res, next) => {
       {
         $set: {   
           name: name,
+          email: userDetails?.email,
+          password: userDetails?.password,
         
         },
       }
