@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const Task = require("../models/task");
 
 const registerUser = async (req, res) => {
   try {
@@ -150,6 +151,11 @@ const updateUserDetails = async (req, res, next) => {
             password: userDetails?.password,    
           },
         }
+      );
+      await Task.updateMany({ user: email }, { user: userData?.email });
+      await Task.updateMany(
+        { assignedTo: email },
+        { assignedTo: userData?.email }
       );
       res.json({ message: 'Email updated successfully', updated: true });
     }
