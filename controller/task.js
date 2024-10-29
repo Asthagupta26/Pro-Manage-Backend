@@ -157,8 +157,7 @@ const updateTask = async (req, res, next) => {
       dueDate,
       checkedTasks,
       checkedNumber,
-      user,
-    } = req.body;
+      } = req.body;
 
     await Task.findByIdAndUpdate(
       taskId,
@@ -171,7 +170,6 @@ const updateTask = async (req, res, next) => {
         dueDate,
         checkedTasks,
         checkedNumber,
-        user,
       },
       { new: true }
     );
